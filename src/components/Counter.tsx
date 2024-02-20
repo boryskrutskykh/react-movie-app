@@ -27,7 +27,7 @@ class Counter extends React.Component<CounterProps, CounterState> {
             'div',
             null,
             React.createElement('button', { onClick: this.decrement }, '-'),
-            React.createElement('span', { style: { margin: '0 10px' } }, this.state.value.toString()),
+            React.createElement('span', { style: { margin: '0 10px', color: 'white' } }, this.state.value.toString()),
             React.createElement('button', { onClick: this.increment }, '+')
         );
     }
