@@ -9,7 +9,7 @@ export interface GenreSelectProps {
 
 const GenreSelect: React.FC<GenreSelectProps> = ({genres, selectedGenre, onSelect}) => {
     return (
-        <div className="wrapper">
+        <div className={styles.genreWrapper}>
             {genres.map((genre) => (
                 <span
                     className={`${styles.selectButtons} ${selectedGenre === genre ? styles.selected : ''}`}
