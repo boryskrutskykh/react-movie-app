@@ -5,3 +5,5 @@ export enum Genre {
     Horror = "Horror",
     Crime = "Crime"
 }
+
+export const GENRES = Object.values(Genre);
