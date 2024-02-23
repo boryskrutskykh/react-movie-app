@@ -9,13 +9,12 @@ export interface GenreSelectProps {
 
 const GenreSelect: React.FC<GenreSelectProps> = ({genres, selectedGenre, onSelect}) => {
     return (
-        <div style={{paddingTop: "2%", paddingLeft: "3%", textAlign: "left"}}>
+        <div className="wrapper">
             {genres.map((genre) => (
                 <span
                     className={`${styles.selectButtons} ${selectedGenre === genre ? styles.selected : ''}`}
                     key={genre}
                     onClick={() => onSelect(genre)}
-                    style={{ cursor: 'pointer' }}
                 >
                     {genre.toUpperCase()}
                 </span>

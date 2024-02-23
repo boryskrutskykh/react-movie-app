@@ -2,24 +2,29 @@ import React, {useState} from 'react';
 import './App.css';
 import {Counter, GenreSelect, SearchForm} from "./components";
 import {handleSearch} from "./utils/searchHandler";
+import {Genre} from "./enums/enums";
 
 function App() {
 
-    const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
-    const [selectedGenre, setSelectedGenre] = useState<string>('All');
+    const genres = Object.values(Genre);
+    const [selectedGenre, setSelectedGenre] = useState<Genre>(Genre.All);
 
     const handleSelectGenre = (genre: string) => {
-        setSelectedGenre(genre);
+        if (Object.values(Genre).includes(genre as Genre)) {
+            setSelectedGenre(genre as Genre);
+        } else {
+            console.error("Genre does not exist.");
+        }
     };
 
     return (
         <div className="App">
             <header>
-                <div>
-                    <p className="logo"><b style={{fontWeight: 900}}>netflix</b>roulette</p>
+                <div className="heading">
+                    <p className="logo"><b className='logoStart'>netflix</b>roulette</p>
                     <button>ADD MOVIE</button>
                 </div>
-                <h1 style={{ color: "white", fontWeight: "300", fontSize: "40px"}}>FIND YOUR MOVIE</h1>
+                <h1 className="title">FIND YOUR MOVIE</h1>
                 <SearchForm initialQuery="" onSearch={handleSearch}/>
             </header>
             <div className="mainBlock">

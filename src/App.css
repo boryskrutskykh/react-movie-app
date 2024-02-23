@@ -1,3 +1,14 @@
+.heading {
+    display: flex;
+    justify-content: space-around;
+}
+
+.title {
+    color: white;
+    font-weight: 300;
+    font-size: 40px;
+}
+
 .mainBlock {
     background-color: #232323;
     min-height: 80vh;
@@ -10,6 +21,10 @@
     font-weight: 500;
     color: #F65261;
     font-size: 20px;
+}
+
+.logoStart {
+    font-weight: 900;
 }
 
 header {
