@@ -1,0 +1,32 @@
+.searchForm > input {
+    width: 713px;
+    height: 57px;
+    background: rgba(50, 50, 50, 0.8);
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    color: white;
+    padding-left: 20px;
+}
+
+input::placeholder {
+    padding-left: 5px;
+}
+
+.searchButton {
+    width: 233px;
+    height: 57px;
+    font-size: 20px;
+    border-radius: 3px;
+    background: #F65261;
+    color: white;
+    cursor: pointer;
+    border-style: none;
+    margin-left: 2%;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+    background-color: rgba(129, 60, 60, 0.8);
+    transition: background-color 0.5s ease;
+}
