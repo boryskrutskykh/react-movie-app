@@ -1,7 +1,8 @@
 import React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import GenreSelect from './GenreSelect'; //
+import GenreSelect from './GenreSelect';
+import userEvent from "@testing-library/user-event"; //
 
 describe('GenreSelect Component', () => {
     const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
@@ -26,7 +27,7 @@ describe('GenreSelect Component', () => {
         render(<GenreSelect genres={genres} selectedGenre={selectedGenre} onSelect={onSelectMock}/>);
         const genreToSelect = 'Horror';
         const genreElement = screen.getByText(genreToSelect.toUpperCase());
-        fireEvent.click(genreElement);
+        userEvent.click(genreElement);
         expect(onSelectMock).toHaveBeenCalledWith(genreToSelect);
     });
 });
