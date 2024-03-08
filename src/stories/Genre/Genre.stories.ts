@@ -22,6 +22,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: StoryObj<typeof meta> = {
   args: {
     genres: [],
-    selectedGenre: ''
+    selectedGenre: '',
   }
 };
