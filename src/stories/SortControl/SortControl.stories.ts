@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { GenreSelect } from "../../components";
+import SortControl from "../../components/sort-control/SortControl";
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'MyStory/GenreSelect',
-  component: GenreSelect,
+  title: 'MyStory/SortControl',
+  component: SortControl,
   parameters: {
     layout: 'centered',
   },
@@ -13,15 +13,16 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    // Control the selectedGenre via select control in Storybook
-    selectedGenre: {
-      control: 'select',
-      options: ['All', 'Drama', 'Comedy', 'Horror'], // Add all genres you want to be selectable
+    selectedSort: {
+      control: { type: 'select', options: ['releaseDate', 'title'] },
+      description: 'Selected sort option',
     },
-    // If you have an onSelect handler you can action it
-    onSelect: { action: 'selected' },
+    onSortChange: {
+      action: 'sortChanged',
+      description: 'Function called when the sort option changes',
+    },
   },
-} satisfies Meta<typeof GenreSelect>;
+} satisfies Meta<typeof SortControl>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -29,7 +30,6 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: StoryObj<typeof meta> = {
   args: {
-    genres: ['All', 'Drama', 'Comedy', 'Horror'],
-    selectedGenre: 'All',
-  }
+    selectedSort: 'releaseDate',
+  },
 };
