@@ -1,3 +1,19 @@
+.searchMovieIcon {
+  position: relative;
+  left: 90%;
+  bottom: 10%;
+  cursor: pointer;
+}
+
+.logoMovieDetail {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #F65261;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 0;
+}
+
 .container {
   display: flex;
   background-color: #232323;

@@ -1,14 +1,19 @@
 import React from 'react';
 import styles from './MovieDetails.module.scss';
 import { MovieDetailsProps } from './movie-tyle.types';
+import {ReactComponent as SearchIcon} from "../../images/SearchButton.svg";
 
 const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
   return (
     <div className={styles.container}>
       <div className={styles.leftColumn}>
+        <p className={styles.logoMovieDetail}>
+          <b className="logoStart">netflix</b>roulette
+        </p>
         <img src={movie.imageUrl} alt={movie.name} className={styles.poster} />
       </div>
       <div className={styles.rightColumn}>
+        <SearchIcon className={styles.searchMovieIcon}/>
         <div className={styles.title}>
           {movie.name.toUpperCase()} <span className={styles.rating}>{movie.rating}</span>
         </div>
