@@ -9,8 +9,15 @@ const SortControl: React.FC<SortControlProps> = ({ selectedSort, onSortChange })
 
   return (
     <div className={styles.sortControl}>
-      <label className={styles.sortLabel}>SORT BY:</label>
-      <select value={selectedSort} onChange={handleSelectChange} className={styles.sortSelect}>
+      <label htmlFor="sort-select" className={styles.sortLabel}>
+        SORT BY:
+      </label>
+      <select
+        id="sort-select"
+        value={selectedSort}
+        onChange={handleSelectChange}
+        className={styles.sortSelect}
+      >
         <option value="releaseDate">Release Date</option>
         <option value="title">Title</option>
       </select>
