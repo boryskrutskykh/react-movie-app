@@ -1,0 +1,19 @@
+.addMovie {
+  width: 177px;
+  height: 46px;
+  background-color: #606060;
+  opacity: 68%;
+  color: #F65261;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1%;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: white;
+  }
+}

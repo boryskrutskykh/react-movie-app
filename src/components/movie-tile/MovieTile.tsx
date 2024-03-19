@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import styles from './MovieTile.module.scss';
 import { MovieTileProps } from './movie-tyle.types';
+import MovieDialog from '../dialog/MovieDialog';
 
 const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick }) => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
-  const toggleMenu = () => setMenuVisible(!menuVisible);
+  const toggleMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setMenuVisible(!menuVisible);
+  };
+
+  const openEditDialog = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setIsEditDialogOpen(true);
+  };
+  const closeEditDialog = () => setIsEditDialogOpen(false);
 
   return (
     <div className={styles.movieTile} onClick={onClick}>
@@ -20,9 +31,21 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick }) => {
       </button>
       {menuVisible && (
         <div className={styles.contextMenu}>
-          <button onClick={() => console.log('Edit')}>Edit</button>
+          <button onClick={openEditDialog}>Edit</button>
           <button onClick={() => console.log('Delete')}>Delete</button>
         </div>
+      )}
+      {isEditDialogOpen && (
+        <MovieDialog
+          title={'Edit movie'}
+          isOpen={isEditDialogOpen}
+          onClose={closeEditDialog}
+          initialMovieInfo={movie}
+          onSubmit={(editedMovie) => {
+            console.log(editedMovie);
+            closeEditDialog();
+          }}
+        />
       )}
     </div>
   );

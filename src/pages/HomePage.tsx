@@ -7,14 +7,21 @@ import { MOVIE_LIST } from '../components/movie-tile/movies-data';
 import { MovieDetailsProps, MovieInfo } from '../components/movie-tile/movie-tyle.types';
 import MovieDetails from '../components/movie-tile/MovieDetails';
 import SortControl from '../components/sort-control/SortControl';
+import MovieDialog from '../components/dialog/MovieDialog';
+import styles from '../components/buttons/AddMovieButton.module.scss';
 
 export const HomePage: React.FC = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>(Genre.All);
   const [selectedMovie, setSelectedMovie] = useState<MovieDetailsProps['movie'] | null>(null);
   const [sortOption, setSortOption] = useState<'releaseDate' | 'title'>('releaseDate');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleSortChange = (newSortOption: 'releaseDate' | 'title') => {
     setSortOption(newSortOption);
+  };
+
+  const toggleDialog = () => {
+    setIsDialogOpen(!isDialogOpen);
   };
 
   const filteredMovies = MOVIE_LIST.filter(
@@ -63,12 +70,26 @@ export const HomePage: React.FC = () => {
             <p className="logo">
               <b className="logoStart">netflix</b>roulette
             </p>
-            <button>ADD MOVIE</button>
+            <button className={styles.addMovie} onClick={toggleDialog}>
+              + ADD MOVIE
+            </button>
           </div>
           <h1 className="title">FIND YOUR MOVIE</h1>
           <SearchForm initialQuery="" onSearch={handleSearch} />
         </header>
       )}
+      {isDialogOpen && (
+        <MovieDialog
+          title={'Add movie'}
+          isOpen={isDialogOpen}
+          onClose={toggleDialog}
+          onSubmit={(movieData) => {
+            console.log(movieData);
+            toggleDialog();
+          }}
+        />
+      )}
+
       <div className="mainBlock">
         <div className="sortAndFilter">
           <GenreSelect genres={GENRES} selectedGenre={selectedGenre} onSelect={handleSelectGenre} />

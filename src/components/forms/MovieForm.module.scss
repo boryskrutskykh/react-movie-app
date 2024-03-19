@@ -1,0 +1,80 @@
+.formText {
+  color: #F65261;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.formTextArea {
+  width: 76%;
+  height: 197px;
+  background: #323232;
+  opacity: 95%;
+  border-style: none;
+  resize: none;
+  color: white;
+  font-size: 20px;
+  padding-top: 1%;
+  padding-left: 1%;
+}
+
+.formFields {
+  width: 70%;
+  height: 57px;
+  background: #323232;
+  opacity: 95%;
+  border-style: none;
+  font-size: 20px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.formFieldsShort {
+  height: 57px;
+  background: #323232;
+  opacity: 95%;
+  border-style: none;
+  font-size: 20px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.formRightSide,
+.formLeftSide {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.formWrapper {
+  display: flex;
+}
+
+.formButtons {
+  width: 180px;
+  height: 57px;
+  background: transparent;
+  border: 1px solid #F65261;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #F65261;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-right: 2%;
+  margin-top: 4%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: #F65261;
+    color: #ffffff;
+  }
+}
+
+.formButtonsWrapper {
+  text-align: end;
+}
+
