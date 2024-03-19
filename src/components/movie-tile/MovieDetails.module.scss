@@ -1,0 +1,94 @@
+.searchMovieIcon {
+  position: relative;
+  left: 90%;
+  bottom: 12%;
+  cursor: pointer;
+}
+
+.logoMovieDetail {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #F65261;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.container {
+  display: flex;
+  background-color: #232323;
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.movieDetailHeading {
+
+}
+
+.leftColumn {
+  margin-left: 5%;
+  margin-right: 5%;
+
+  img.poster {
+    width: 323px;
+    height: auto;
+  }
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-align: left;
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+  }
+
+  .rating {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: lighter;
+    color: white;
+    background-color: transparent;
+    margin-left: 10px;
+  }
+
+  .genre {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+
+  .yearAndDuration {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #F65261;
+    font-weight: lighter;
+
+    .year {
+      margin-right: 10%;
+    }
+
+    .duration {
+    }
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-right: 9%;
+  }
+}

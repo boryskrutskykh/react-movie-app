@@ -1,3 +1,17 @@
+.sortAndFilter {
+    display: flex;
+}
+
+.movieList {
+    display: flex;
+}
+
+.filtered-count {
+    margin-top: 3%;
+    color: white;
+    text-align: left;
+}
+
 .heading {
     display: flex;
     justify-content: space-around;

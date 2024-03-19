@@ -4,6 +4,10 @@
     text-align: left !important;
 }
 
+.sortLabel {
+    color: white;
+}
+
 .selectButtons {
     font-size: 16px;
     margin: 0 4px;

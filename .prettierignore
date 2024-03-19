@@ -1,0 +1,10 @@
+.idea/
+node_modules/
+e2e/
+.github/
+package-lock.json
+package.json
+.eslintrc.cjs
+.prettierrc
+README.md
+tsconfig.json
