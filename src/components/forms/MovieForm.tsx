@@ -27,7 +27,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ initialMovieInfo, onSubmit }) => 
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setMovieInfo({ ...movieInfo, [name]: value });
+    setMovieInfo((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
