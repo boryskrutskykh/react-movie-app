@@ -11,10 +11,23 @@
   z-index: 1000;
 }
 
+.deleteDialogHeader {
+  display: inline-flex;
+}
+
 .dialogContent {
   position: relative;
   width: 976px;
   height: 800px;
+  background: #232323;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.deleteDialogContent {
+  position: relative;
+  width: auto;
+  height: auto;
   background: #232323;
   border-radius: 8px;
   padding: 20px;
@@ -40,7 +53,9 @@
   cursor: pointer;
 }
 
-.dialogBody {
-
+.deleteMovieText {
+  color: white;
 }
+
+
 

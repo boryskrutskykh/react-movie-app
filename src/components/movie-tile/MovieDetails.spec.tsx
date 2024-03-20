@@ -15,13 +15,15 @@ describe('MovieDetails Component', () => {
   };
 
   test('renders MovieDetails with correct data', () => {
-    render(<MovieDetails movie={movieDetails} />);
+    const mockOnSearchClick = jest.fn();
+
+    render(<MovieDetails movie={movieDetails} onSearchClick={mockOnSearchClick} />);
 
     expect(screen.getByAltText(movieDetails.name)).toBeInTheDocument();
     expect(screen.getByText(movieDetails.name.toUpperCase())).toBeInTheDocument();
     expect(screen.getByText(movieDetails.rating)).toBeInTheDocument();
     expect(screen.getByText(movieDetails.genres.join(', '))).toBeInTheDocument();
-    expect(screen.getByText(movieDetails.releaseYear)).toBeInTheDocument();
+    expect(screen.getByText(`${movieDetails.releaseYear}`)).toBeInTheDocument();
     expect(screen.getByText(movieDetails.duration)).toBeInTheDocument();
     expect(screen.getByText(movieDetails.description)).toBeInTheDocument();
   });

@@ -12,18 +12,18 @@ interface MovieFormProps {
 const MovieForm: React.FC<MovieFormProps> = ({ initialMovieInfo, onSubmit }) => {
   const [selectedOptions, setSelectedOptions] = useState<MultiValue<{ value: string; label: string }>>([]);
 
-  const [movieInfo, setMovieInfo] = useState<MovieInfo>(
-    initialMovieInfo || {
-      id: undefined,
-      imageUrl: '',
-      name: '',
-      releaseYear: '',
-      genres: [],
-      rating: '',
-      duration: '',
-      description: '',
-    },
-  );
+  const initialFormState: MovieInfo = {
+    id: undefined,
+    imageUrl: '',
+    name: '',
+    releaseYear: '',
+    genres: [],
+    rating: '',
+    duration: '',
+    description: '',
+  };
+
+  const [movieInfo, setMovieInfo] = useState<MovieInfo>(initialMovieInfo || initialFormState);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -37,6 +37,11 @@ const MovieForm: React.FC<MovieFormProps> = ({ initialMovieInfo, onSubmit }) => 
 
   const handleSelectChange = (newValues: MultiValue<{ value: string; label: string }>) => {
     setSelectedOptions(newValues);
+  };
+
+  const handleReset = () => {
+    setMovieInfo(initialFormState);
+    setSelectedOptions([]);
   };
 
   const customStyles = {
@@ -125,7 +130,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ initialMovieInfo, onSubmit }) => 
       </label>
       <br />
       <div className={styles.formButtonsWrapper}>
-        <button className={styles.formButtons} type="submit">
+        <button className={styles.formButtons} role='reset-button' type="button" onClick={handleReset}>
           RESET
         </button>
         <button className={styles.formButtons} type="submit">

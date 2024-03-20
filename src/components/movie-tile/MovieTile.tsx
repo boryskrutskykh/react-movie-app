@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import styles from './MovieTile.module.scss';
+import dialogStyles from '../dialog/Dialog.module.scss';
+import buttonStyles from '../buttons/Button.module.scss';
 import { MovieTileProps } from './movie-tyle.types';
 import MovieDialog from '../dialog/MovieDialog';
+import Dialog from '../dialog/Dialog';
 
 const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   const toggleMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -16,7 +20,19 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick }) => {
     event.stopPropagation();
     setIsEditDialogOpen(true);
   };
+
+  const openDeleteDialog = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setIsDeleteDialogOpen(true);
+  };
+
   const closeEditDialog = () => setIsEditDialogOpen(false);
+  const closeDeleteDialog = () => setIsDeleteDialogOpen(false);
+
+  const handleDeleteMovie = () => {
+    console.log('Deleting movie:', movie.name);
+    closeDeleteDialog();
+  };
 
   return (
     <div className={styles.movieTile} onClick={onClick}>
@@ -32,7 +48,7 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick }) => {
       {menuVisible && (
         <div className={styles.contextMenu}>
           <button onClick={openEditDialog}>Edit</button>
-          <button onClick={() => console.log('Delete')}>Delete</button>
+          <button onClick={openDeleteDialog}>Delete</button>
         </div>
       )}
       {isEditDialogOpen && (
@@ -46,6 +62,14 @@ const MovieTile: React.FC<MovieTileProps> = ({ movie, onClick }) => {
             closeEditDialog();
           }}
         />
+      )}
+      {isDeleteDialogOpen && (
+        <Dialog title="DELETE MOVIE" onClose={closeDeleteDialog} dialogType="delete">
+          <p className={dialogStyles.deleteMovieText}>Are you sure you want to delete this movie?</p>
+          <button className={buttonStyles.mainButton} onClick={handleDeleteMovie}>
+            CONFIRM
+          </button>
+        </Dialog>
       )}
     </div>
   );

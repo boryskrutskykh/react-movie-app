@@ -6,16 +6,21 @@ interface DialogProps {
   title: React.ReactNode;
   children: React.ReactNode;
   onClose: () => void;
+  dialogType?: 'edit' | 'delete';
 }
 
-const Dialog: React.FC<DialogProps> = ({ title, children, onClose }) => {
+const Dialog: React.FC<DialogProps> = ({ title, children, onClose, dialogType = 'edit' }) => {
+
+  const dialogContentClass = dialogType === 'delete' ? styles.deleteDialogContent : styles.dialogContent;
+  const dialogHeaderClass = dialogType === 'delete' ? styles.deleteDialogHeader : styles.dialogHeader;
+
   return createPortal(
     <div className={styles.dialogOverlay} onClick={onClose}>
-      <div className={styles.dialogContent} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.dialogHeader}>
+      <div className={dialogContentClass} role="dialog" onClick={(e) => e.stopPropagation()}>
+        <div className={dialogHeaderClass}>
           <h2 className={styles.dialogTitle}>{title}</h2>
           <button className={styles.dialogCloseButton} onClick={onClose}>
-            &times;
+            <span>&times;</span>
           </button>
         </div>
         <div className={styles.dialogBody}>{children}</div>

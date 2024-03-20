@@ -8,7 +8,7 @@ import { MovieDetailsProps, MovieInfo } from '../components/movie-tile/movie-tyl
 import MovieDetails from '../components/movie-tile/MovieDetails';
 import SortControl from '../components/sort-control/SortControl';
 import MovieDialog from '../components/dialog/MovieDialog';
-import styles from '../components/buttons/AddMovieButton.module.scss';
+import styles from '../components/buttons/Button.module.scss';
 
 export const HomePage: React.FC = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>(Genre.All);
@@ -22,6 +22,10 @@ export const HomePage: React.FC = () => {
 
   const toggleDialog = () => {
     setIsDialogOpen(!isDialogOpen);
+  };
+
+  const resetSelectedMovie = () => {
+    setSelectedMovie(null);
   };
 
   const filteredMovies = MOVIE_LIST.filter(
@@ -63,14 +67,14 @@ export const HomePage: React.FC = () => {
   return (
     <div>
       {selectedMovie ? (
-        <MovieDetails movie={selectedMovie} />
+        <MovieDetails movie={selectedMovie} onSearchClick={resetSelectedMovie} />
       ) : (
         <header>
           <div className="heading">
             <p className="logo">
               <b className="logoStart">netflix</b>roulette
             </p>
-            <button className={styles.addMovie} onClick={toggleDialog}>
+            <button className={styles.mainButton} onClick={toggleDialog}>
               + ADD MOVIE
             </button>
           </div>

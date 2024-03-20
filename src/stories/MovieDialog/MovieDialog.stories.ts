@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MovieInfo, MovieTileProps } from '../../components/movie-tile/movie-tyle.types';
+import { MovieInfo } from '../../components/movie-tile/movie-tyle.types';
 import MovieDialog from '../../components/dialog/MovieDialog';
+import Dialog from '../../components/dialog/Dialog';
 
 const sampleMovieInfo: MovieInfo = {
   imageUrl: 'https://example.com/movie-poster.jpg',
@@ -42,5 +43,13 @@ export const AddNewMovieDialog: StoryObj<typeof MovieDialog> = {
     initialMovieInfo: undefined,
     onSubmit: (movieInfo) => console.log('Submitted new movie info:', movieInfo),
     title: 'Add New Movie',
+  },
+};
+
+export const DeleteMovieDialog: StoryObj<typeof Dialog> = {
+  args: {
+    onClose: () => console.log('Dialog closed'),
+    title: 'DELETE MOVIE',
+    dialogType: 'delete',
   },
 };
