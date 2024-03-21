@@ -1,3 +1,10 @@
+export const GENRES_ARRAY = [
+  {id: 1, name: 'documentary'},
+  {id: 2, name: 'comedy'},
+  {id: 3, name: 'horror'},
+  {id: 4, name: 'crime'}
+];
+
 export const MOVIE_LIST = [
   {
     id: 1,
